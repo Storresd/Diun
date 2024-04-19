@@ -1,0 +1,20 @@
+db:
+  path: diun.db
+
+watch:
+  workers: 20
+  schedule: "0 */6 * * *"
+
+providers:
+  docker:
+    watchStopped: true
+
+notif:
+  discord:
+    webhookURL: "URL"
+    mentions:
+      - "@everyone"
+    renderFields: true
+    timeout: 10s
+    templateBody: |
+      La imagen {{ .Entry.Image }} tiene una nueva actualización.
